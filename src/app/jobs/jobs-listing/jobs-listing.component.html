@@ -1,0 +1,17 @@
+<app-nav-bar></app-nav-bar>
+
+<main>
+  <app-search-bar></app-search-bar>
+
+  <div class="listing">
+    <app-job-card
+      *ngFor="let job of jobs"
+      [job]="job"
+      (click)="onCardCLick(job.id)"
+    />
+  </div>
+
+  <div class="button-container">
+    <button type="button" class="btn-primary text-bold">Load More</button>
+  </div>
+</main>

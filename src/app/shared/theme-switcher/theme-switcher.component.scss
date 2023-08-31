@@ -1,0 +1,12 @@
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .switch {
+    background-color: white;
+    width: 40px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+}

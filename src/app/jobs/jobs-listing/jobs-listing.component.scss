@@ -1,0 +1,27 @@
+.listing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  @media (max-width: 350px) {
+    & {
+      grid-template-columns: 1fr !important;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}

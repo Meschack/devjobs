@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="default-informations">
+    <div class="logo" [style.background-color]="job.logoBackground">
+      <img [src]="job.logo" [alt]="'Logo de ' + job.company" />
+    </div>
+
+    <div class="infos">
+      <small>{{ job.postedAt }}</small>
+      <div class="dot"></div>
+      <small>{{ job.contract }}</small>
+    </div>
+
+    <h2 class="text-dark">{{ job.position }}</h2>
+
+    <h3>{{ job.company }}</h3>
+  </div>
+
+  <div class="location">
+    <strong class="text-primary">{{ job.location }}</strong>
+  </div>
+</div>

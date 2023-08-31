@@ -1,0 +1,26 @@
+$input-placeholder: rgb(194, 194, 194);
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  transform: translateY(-50%);
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input:not(input[type="checkbox"]) {
+      padding: 0.5rem;
+      border: none;
+      outline: 0;
+      color: $input-placeholder !important;
+      font-size: 14px;
+    }
+  }
+}
