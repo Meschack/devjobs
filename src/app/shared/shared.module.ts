@@ -4,6 +4,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { JobCardComponent } from './job-card/job-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { JobCardComponent } from './job-card/job-card.component';
     SearchBarComponent,
     JobCardComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [
     NavBarComponent,
     ThemeSwitcherComponent,

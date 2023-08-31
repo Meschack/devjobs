@@ -1,4 +1,4 @@
-<form action="">
+<form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="defaultSearchOption">
       <img src="/assets/desktop/icon-search.svg" alt="Icône de recherche" />
@@ -8,6 +8,8 @@
       type="text"
       placeholder="Filter by title, companies, expertise"
       class="text-bold"
+      name="titleOrCompanyOrExpertise"
+      [(ngModel)]="filterData.titleOrCompanyOrExpertise"
     />
   </div>
 
@@ -23,6 +25,8 @@
       type="text"
       placeholder="Filter by location"
       class="text-bold"
+      name="location"
+      [(ngModel)]="filterData.location"
     />
   </div>
 
@@ -30,7 +34,8 @@
     <input
       id="typeFilter"
       type="checkbox"
-      placeholder="Search by title, companies, expertise"
+      name="fullTimeOnly"
+      [(ngModel)]="filterData.fullTimeOnly"
     />
     <label for="typeFilter">Full Time Only</label>
   </div>

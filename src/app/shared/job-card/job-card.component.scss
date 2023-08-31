@@ -9,6 +9,11 @@ $card-dark: rgb(25, 32, 45);
   gap: 1.5rem;
   height: 100%;
   cursor: pointer;
+  transition-duration: 0.5s;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 
   .default-informations {
     display: flex;
@@ -24,19 +29,6 @@ $card-dark: rgb(25, 32, 45);
       align-items: center;
       justify-content: center;
       transform: translateY(-50%);
-    }
-
-    .infos {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      .dot {
-        width: 5px;
-        height: 5px;
-        border-radius: 100%;
-        background-color: rgb(110, 128, 152);
-      }
     }
   }
 }

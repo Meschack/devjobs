@@ -1,1 +1,81 @@
 <app-nav-bar></app-nav-bar>
+
+<main>
+  <div class="banner">
+    <div class="logo" [style.background-color]="job.logoBackground">
+      <img [src]="job.logo" [alt]="'Logo de ' + job.company" />
+    </div>
+
+    <div class="company">
+      <div class="brand">
+        <h2>{{ job.company }}</h2>
+        <a [href]="job.website" target="_blank">{{ job.website }}</a>
+      </div>
+
+      <a [href]="job.website">
+        <button class="btn-soft-primary text-bold">Company Site</button>
+      </a>
+    </div>
+  </div>
+
+  <div class="content">
+    <header>
+      <div>
+        <div class="infos">
+          <small>{{ job.postedAt }}</small>
+          <div class="dot"></div>
+          <small>{{ job.contract }}</small>
+        </div>
+        <h2 class="text-dark">{{ job.position }}</h2>
+        <h3 class="text-primary">{{ job.location }}</h3>
+      </div>
+
+      <button class="btn-primary">Apply Now</button>
+    </header>
+
+    <article>
+      <p class="description">
+        {{ job.description }}
+      </p>
+
+      <div>
+        <h2>Requirements</h2>
+        <p>
+          {{ job.requirements.content }}
+        </p>
+
+        <ul>
+          <li *ngFor="let item of job.requirements.items">
+            <div class="dot"></div>
+            <p>{{ item }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>What You Will Do</h2>
+        <p>
+          {{ job.role.content }}
+        </p>
+
+        <ol>
+          <li *ngFor="let item of job.role.items; let index">
+            <div class="index"></div>
+            <p>{{ item }}</p>
+          </li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="content">
+    <div>
+      <h2>{{ job.position }}</h2>
+      <small>{{ job.company }}</small>
+    </div>
+
+    <button class="btn-primary">Apply Now</button>
+  </div>
+</footer>

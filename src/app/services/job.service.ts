@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Job } from '../models/job';
+import { FilterData } from '../models/filterData';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JobService {
-  private jobs: Job[] = [
+  jobs: Job[] = [
     {
       id: 1,
       company: 'Scoot',
@@ -533,8 +534,20 @@ export class JobService {
     },
   ];
 
-  getAllJobs(): Job[] {
-    return this.jobs;
+  getJobs(criteria: FilterData): Job[] {
+    const lowercaseSearchTerm =
+      criteria.titleOrCompanyOrExpertise.toLowerCase();
+
+    const jobs = this.jobs.filter((job) => {
+      return (
+        (job.position.toLowerCase().includes(lowercaseSearchTerm) ||
+          job.company.toLowerCase().includes(lowercaseSearchTerm)) &&
+        job.location.toLowerCase().includes(criteria.location) &&
+        (criteria.fullTimeOnly ? job.contract === 'Full Time' : job.contract)
+      );
+    });
+
+    return jobs;
   }
 
   findJobById(id: number): Job | undefined {

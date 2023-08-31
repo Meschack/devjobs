@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FilterData } from 'src/app/models/filterData';
 import { Job } from 'src/app/models/job';
+import { FilterDataSharingService } from 'src/app/services/filter-data-sharing.service';
 import { JobService } from 'src/app/services/job.service';
 
 @Component({
@@ -11,13 +13,34 @@ import { JobService } from 'src/app/services/job.service';
 export class JobsListingComponent implements OnInit {
   jobs!: Job[];
 
-  constructor(private jobService: JobService, private router: Router) {}
+  filterCriteria: FilterData = {
+    fullTimeOnly: false,
+    location: '',
+    titleOrCompanyOrExpertise: '',
+  };
+
+  constructor(
+    private jobService: JobService,
+    private filterDataSharingService: FilterDataSharingService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.jobs = this.jobService.getAllJobs();
+    this.filterDataSharingService.currentFilterCriteria.subscribe(
+      (criteria) => {
+        this.filterCriteria = criteria;
+        this.getJobs();
+        // console.log(this.jobs);
+      }
+    );
+  }
+
+  getJobs() {
+    this.jobs = this.jobService.getJobs(this.filterCriteria);
   }
 
   onCardCLick(cardId: number) {
+    console.log(this.filterCriteria, this.jobs);
     this.router.navigateByUrl(`jobs/${cardId}`);
   }
 }

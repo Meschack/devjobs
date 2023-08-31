@@ -9,7 +9,13 @@ import { JobCardDirective } from './directives/job-card.directive';
 
 @NgModule({
   declarations: [AppComponent, JobCardDirective],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, JobsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    JobsModule,
+    // FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

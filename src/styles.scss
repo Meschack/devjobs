@@ -67,3 +67,19 @@ button {
 .text-bold {
   font-family: "Inter Bold" !important;
 }
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+}
+
+.infos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .dot {
+    background-color: $dark-secondary;
+  }
+}
