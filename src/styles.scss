@@ -49,10 +49,20 @@ button {
   border-radius: 3px;
   cursor: pointer;
   width: max-content;
+  color: $white;
 
   &.btn-primary {
     background-color: $primary;
-    color: $white;
+  }
+
+  &.btn-soft-primary {
+    background-color: $primary;
+    opacity: 0.6;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
